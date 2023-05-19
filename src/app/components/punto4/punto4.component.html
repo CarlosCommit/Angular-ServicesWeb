@@ -1,283 +1,46 @@
- <!--SECCION 1-->
- <div class="row">
-
-    <div class="col-12 col-sm-12 ">
-     <div class="row">
-        <!--signos-->
-        <div class="col-md-4 col-6 d-flex justify-content-center align-items-center ">
-
-          <div class="card"  style="width: 90%; min-height: 5rem;">
-
-            <div class="row no-gutters">
-              <div class="col-md-4 d-flex align-items-center justify-content-center">
-                <img src="assets/images/tauro.png" class="card-img h-100 w-100" alt="Imagen 1">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">Tauro</h5>
-                
-                </div>
-              </div>
+<!-- SECCION 1 -->
+<div class="row">
+  <div class="col-12 col-sm-12">
+    <div class="row">
+      <!-- Signos -->
+      <div class="col-lg-4 col-6 mb-3" *ngFor="let signo of signos">
+        <div class="card h-100 clickable-card" (click)="getHoroscope(signo)">
+          <div class="row no-gutters">
+            <div class="col-md-4 d-flex align-items-center justify-content-center">
+              <img src="assets/images/{{signo.img}}" class="card-img img-fluid p-3 small-image" alt="Imagen 1">
             </div>
 
-          </div>
-        </div>    
-
-        <div class="col-md-4 col-6 d-flex justify-content-center align-items-center ">
-
-          <div class="card"  style="width: 90%;">
-
-            <div class="row no-gutters">
-              <div class="col-md-4 d-flex align-items-center justify-content-center">
-                <img src="assets/images/aries.png" class="card-img h-100 " alt="Imagen 1">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">Aries</h5>
-                
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>     
-        <div class="col-md-4  col-6 d-flex justify-content-center align-items-center ">
-
-          <div class="card"  style="width: 90%;">
-
-            <div class="row no-gutters">
-              <div class="col-md-4 d-flex align-items-center justify-content-center">
-                <img src="assets/images/geminis.png" class="card-img h-100 " alt="Imagen 1">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">Geminis</h5>
-                
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>      
-        <div class="col-md-4 col-6  d-flex justify-content-center align-items-center ">
-
-          <div class="card"  style="width: 90%;">
-
-            <div class="row no-gutters">
-              <div class="col-md-4 d-flex align-items-center justify-content-center">
-                <img src="assets/images/escorpio.png" class="card-img h-100 " alt="Imagen 1">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">Escorpio</h5>
-                
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>         
-
-        <div class="col-md-4 col-6 d-flex justify-content-center align-items-center ">
-
-          <div class="card"  style="width: 90%;">
-
-            <div class="row no-gutters">
-              <div class="col-md-4 d-flex align-items-center justify-content-center">
-                <img src="assets/images/piscis.png" class="card-img h-100 " alt="Imagen 1">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">Piscis</h5>
-                
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>    
-        <div class="col-md-4 col-6 d-flex justify-content-center align-items-center ">
-
-          <div class="card"  style="width: 90%;">
-
-            <div class="row no-gutters">
-              <div class="col-md-4 d-flex align-items-center justify-content-center">
-                <img src="assets/images/cancer.png" class="card-img h-100 " alt="Imagen 1">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">Cancer</h5>
-                
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>        
-        <div class="col-md-4 col-6 d-flex justify-content-center align-items-center ">
-
-          <div class="card"  style="width: 90%;">
-
-            <div class="row no-gutters">
-              <div class="col-md-4 d-flex align-items-center justify-content-center">
-                <img src="assets/images/sagitario.png" class="card-img h-100 " alt="Imagen 1">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">Sagitario</h5>
-                
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>      
-        <div class="col-md-4 col-6 d-flex justify-content-center align-items-center ">
-
-          <div class="card"  style="width: 90%;">
-
-            <div class="row no-gutters">
-              <div class="col-md-4 d-flex align-items-center justify-content-center">
-                <img src="assets/images/leo.png" class="card-img h-100 " alt="Imagen 1">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">Leo</h5>
-                
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>  
-        <div class="col-md-4 col-6 d-flex justify-content-center align-items-center ">
-
-          <div class="card"  style="width: 90%;">
-
-            <div class="row no-gutters">
-              <div class="col-md-4 d-flex align-items-center justify-content-center">
-                <img src="assets/images/libra.png" class="card-img h-100 " alt="Imagen 1">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">Libra</h5>
-                
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>    
-        <div class="col-md-4 col-6 d-flex justify-content-center align-items-center ">
-
-          <div class="card"  style="width: 90%;">
-
-            <div class="row no-gutters">
-              <div class="col-md-4 d-flex align-items-center justify-content-center">
-                <img src="assets/images/virgo.png" class="card-img h-100 " alt="Imagen 1">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">Virgo</h5>
-                
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>         
-        <div class="col-md-4 col-6 d-flex justify-content-center align-items-center ">
-
-          <div class="card"  style="width: 90%;">
-
-            <div class="row no-gutters">
-              <div class="col-md-4 d-flex align-items-center justify-content-center">
-                <img src="assets/images/capricornio.png" class="card-img h-100 " alt="Imagen 1">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">Capricornio</h5>
-                
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>         
-        <div class="col-md-4 col-6 d-flex justify-content-center align-items-center ">
-
-          <div class="card"  style="width: 90%;">
-
-            <div class="row no-gutters">
-              <div class="col-md-4 d-flex align-items-center justify-content-center">
-                <img src="assets/images/acuario.png" class="card-img h-100 " alt="Imagen 1">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">Acuario</h5>
-                
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>         
-     </div>
-  </div>
-  <!--SECCION 2-->
-  <div class="row mt-5">
-
-    <div class="col-12 border">
-      <div class="row">
-       
-            <div class="col-12">
+            <div class="col-md-8 d-flex align-items-center justify-content-center">
               <div class="row">
-                <div class="col-8 text-center">
-                  <h3 class="h1 bg-danger">Horosco del dia</h3>
-                  <h3 class="h2 mt-3">ACUARIO</h3>
-                  <div class="mt-5"><p>Deje de seguir vacilando y empiece a actuar sin demora, ya que será un período de decisiones. No deje para después lo que puede y quiere hacer hoy.
-
-                    Amor: Mientras utilice una actitud serena y compasiva podrá superar cualquier conflicto amoroso. No se deje llevar por los comentarios de otras personas.
-                    
-                    Riqueza: Gracias a la armonía que ha recuperado en estos días, le permitirá llevar a cabo sus proyectos con claridad. Mantenga la prudencia y todo continuará por buen camino.
-                    
-                    Bienestar: Procure llevar las actividades a un ritmo más cómodo y agradable. Si los problemas lo atormentan, no dude en despejar su mente leyendo un libro.</p></div>
-                </div>
-                <div class="col-4">
-                  <img src="assets/images/acuario.png" class="card-img card-img-top " alt="">
+                <div class="col-md-12">
+                  <div class="card-body">
+                    <h2 class="card-title text-center">{{signo.nombre}}</h2>
+                  </div>
                 </div>
               </div>
             </div>
-
           </div>
-
         </div>
-
-        
-    <div class="col-12 border">
-      <div class="row">
-       
-            <div class="col-12 mt-3">
-              <div class="row">
-                <div class="col-8 text-center">
-                  <h3 class="h1 bg-danger">Horosco del dia</h3>
-                  <h3 class="h2 mt-3">CANCER</h3>
-                  <div class="mt-5"><p>No permita que los problemas cotidianos lo obsesionen como lo han hecho días atrás. Intente enfocarlos desde otra perspectiva y no lo afectará demasiado.
-
-                    Amor: Deje de actuar de manera grotesca, ya que su alma gemela podría enojarse con usted. Aprenda a como tratar de manera correcta a la persona que ama.
-                    
-                    Riqueza: En estos días, evite los gastos desmedidos, por más mínimos que sean. Si no cambia, en muy poco tiempo podrá desequilibrar su presupuesto económico.
-                    
-                    Bienestar: Si le cuesta tomar muchas de las decisiones que tiene pendientes en su vida, sería bueno que intente buscar ayuda profesional cuanto antes.</p></div>
-                </div>
-                <div class="col-4">
-                  <img src="assets/images/cancer.png" class="card-img card-img-top " alt="">
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-
+      </div>
+    </div>
   </div>
+</div>
+
+<!-- SECCION 2 -->
+<div class="row mb-4" *ngIf="horoscopo.horoscope != ''">
+  <div class="col-12 col-sm-12 border">
+    <div class="row">
+      <div class="col-8 text-center">
+        <h3 class="h1 bg-danger text-white p-3">Horóscopo del mes</h3>
+        <h3 class="h2 mt-3">{{horoscopo.title}}</h3>
+        <div class="mt-5">
+          <p class="text-center">{{horoscopo.horoscope}}</p>
+        </div>
+      </div>
+      <div class="col-4 d-flex align-items-center justify-content-center">
+        <img src="assets/images/{{horoscopo.img}}" class="card-img card-img-top" alt="">
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { concatMap, from } from 'rxjs';
 import { ItemMusica } from 'src/app/models/item-musica';
+import { MusicService } from 'src/app/services/music.service';
 
 @Component({
   selector: 'app-punto2',
@@ -7,21 +9,57 @@ import { ItemMusica } from 'src/app/models/item-musica';
   styleUrls: ['./punto2.component.css']
 })
 export class Punto2Component implements OnInit {
-  musica:Array<ItemMusica>;
-  constructor() {
-    this.musica=[
-      {img:"quevedo.jpg",titulo: "Quevedo",top:["Punto G", "Ahora Y Siempre" ,"BZRP Music Session #52"]},
-      {img:"duki.jpg",titulo: "Duki",top:["Goteo" ,"Hello Cotto"," LeBron"]},
-      {img:"becerra.jpg",titulo: "Maria Becerra",top:["Automático", "Acaramelao", "Felices x Siempre"]},
-      {img:"eminem.jpg",titulo: "Eminem",top:["Without Me","Lose Yourself", "Stan"]},
-      {img:"badbunny.jpg",titulo: "Bad Bunny",top:["Yonagumi", "Estamos Bien", "La Romana"]},
-      {img:"billie.jpg",titulo: "Billie Eilish",top:["Lovely","Happier Than Ever","Lost Cause"]},
-      {img:"paulo.jpg",titulo: "Paulo Londra",top:["Adan Y Eva","Tal Vez", "Nena Maldicion"]},
-      {img:"arcangel.jpg",titulo: "Arcangel",top:["Me Acostumbre" ,"Invicto","Original"]}
-    ]
-   }
+  sugeridos!:Array<number>;
+  input!:string;
+  music!:Array<any>;
+  urlNext!:string;
+  urlPreview!:string;
+
+
+
+  constructor(private musicService:MusicService) {
+    this.music=[];
+    this.musicService.getSugeridos().subscribe( (resultado:any) => {
+      this.music = resultado.data;
+   }, error=>{
+    console.log("No inicio el servidor con la configuracion del proxy (ng serve --proxy-config proxy.conf.json) ",error);
+    this.sugeridos=[1520227652,2144446877,1741494317,15437242,1811481707,1265852952,2136493657,537033822,4211101];
+    //hacemos un "for" asincrono para evitar problemas
+    from(this.sugeridos).pipe(
+      concatMap( (id:number) => this.musicService.getTrack(id))
+    ).subscribe((data) => {
+    
+     this.music.push(data);
+    });
+   });
+  }
 
   ngOnInit(): void {
   }
+  public buscar():void{
+    this.musicService.searchMusic(this.input).subscribe(result=>{
+      this.music = result.data; 
+      this.urlNext = result.next;
+     console.log(result);
+
+    })
+  }
+
+  next(direccion:string)
+  {
+    let url = (direccion=='next')? this.urlNext : this.urlPreview;
+   this.musicService.nextPage(url.split("?")[1]).subscribe(result=>{
+    this.music = result.data;
+    this.urlNext = result.next;
+    this.urlPreview = result.prev;
+  
+  },
+  error=>
+  {
+    alert("Para poder tener la funcionalidad de paginado, debe levantar el servidor como ng serve --proxy-conf proxy.conf.json, he configurado un proxy para jugar de intermediario asi 'evadir los CORS del navegador'");
+  }
+  
+    );
+}
 
 }

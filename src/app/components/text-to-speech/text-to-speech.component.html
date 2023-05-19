@@ -1,0 +1,34 @@
+
+    <div class="text-center">
+      <h1 class="mb-4">Transformar Texto a Voz</h1>
+    </div>
+  
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <form>
+          <div class="form-group">
+            <label for="texto" class="font-weight-bold">Ingrese Texto:</label>
+            <textarea class="form-control" id="texto" rows="5" [(ngModel)]="texto" name="texto" (input)="limpiar()"></textarea>
+          </div>
+      
+          <div class="form-group mb-4">
+            <label for="lenguaje" class="font-weight-bold">Seleccione Lenguaje:</label>
+            <select class="form-control" id="lenguaje" [(ngModel)]="lenguajeElegido" name="lenguaje" (input)="limpiar()">
+              <option *ngFor="let lenguaje of lenguajes" [value]="lenguaje[0]">{{lenguaje[1]}}</option>
+            </select>
+          </div>
+      
+          <div class="text-center mb-4">
+            <button class="btn btn-primary btn-lg" (click)="convertirTexto()">Convertir</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    
+     
+  <div class="row justify-content-center mt-5 mb-4" *ngIf="audioUrl">
+    <div class="col-md-6 d-flex justify-content-center">
+      <audio [src]="audioUrl" controls></audio>
+    </div>
+  </div>
+  

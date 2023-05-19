@@ -9,6 +9,10 @@ import { Punto2Component } from './components/punto2/punto2.component';
 import { Punto3Component } from './components/punto3/punto3.component';
 import { Punto4Component } from './components/punto4/punto4.component';
 import { FooterComponent } from './components/footer/footer.component';
+import {HttpClientModule} from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { TextToSpeechComponent } from './components/text-to-speech/text-to-speech.component';
+
 
 @NgModule({
   declarations: [
@@ -18,11 +22,14 @@ import { FooterComponent } from './components/footer/footer.component';
     Punto2Component,
     Punto3Component,
     Punto4Component,
-    FooterComponent
+    FooterComponent,
+    TextToSpeechComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
