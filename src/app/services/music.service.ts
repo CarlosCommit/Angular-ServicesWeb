@@ -22,6 +22,8 @@ export class MusicService {
   }
 
   public nextPage(url:string):Observable<any>{ 
+
+     //Peticion al proxy
     return this.httpClient.get("/api/search?"+url); 
   }
 
@@ -35,6 +37,7 @@ export class MusicService {
         'X-RapidAPI-Host': 'deezerdevs-deezer.p.rapidapi.com'
       }
     };
+    //Peticion al proxy
     return this.httpClient.get('/api/chart/0/tracks',options)
     
 
